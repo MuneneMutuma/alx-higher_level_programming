@@ -1,2 +1,2 @@
-#!~/Code/alx/alx-higher_level_programming/env python3
+#!/usr/bin/python3
 print("Best School")
