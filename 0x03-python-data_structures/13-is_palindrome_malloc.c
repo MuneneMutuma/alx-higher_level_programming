@@ -37,35 +37,39 @@ int len_list(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *copy, *iter_copy;
-	int len, i, x, a, b;
+	int len, *list, i;
 
-	len = len_list(head);
-	copy = *head;
+	listint_t *copy;
 
 	if (*head == NULL)
 	{
 		return (1);
 	}
 
+	copy = *head;
+	len = len_list(head);
+
+	list = malloc(len * sizeof(int));
+	copy = *head;
 	i = 0;
-	while (i < len)
+	while (copy->next)
 	{
-		x = 0;
-		iter_copy = copy;
-		a = copy->n;
-		while (x < len - 2 * i - 1)
-		{
-			iter_copy = iter_copy->next;
-			x++;
-		}
-
-		b = iter_copy->n;
-		if (a != b)
-			return (0);
-
+		list[i] = copy->n;
 		copy = copy->next;
 		i++;
 	}
+	list[i] = copy->n;
+
+	i = 0;
+	while (i < len)
+	{
+		if (list[i] != list[len - i - 1])
+		{
+			free(list);
+			return (0);
+		}
+		i++;
+	}
+	free(list);
 	return (1);
 }
