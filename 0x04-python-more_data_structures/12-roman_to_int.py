@@ -2,7 +2,7 @@
 
 def roman_to_int(roman_string):
     if type(roman_string) is not str or None:
-	    return 0
+        return 0
     vals = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     length = len(roman_string)
 
@@ -12,7 +12,7 @@ def roman_to_int(roman_string):
         current = roman_string[i]
         if i < length - 1:
             ahead = roman_string[i + 1]
-            if current == "I" and (ahead == "V" or  ahead == "X"):
+            if current == "I" and (ahead == "V" or ahead == "X"):
                 ans -= vals[current]
             elif current == "X" and (ahead == "L" or ahead == "C"):
                 ans -= vals[current]
