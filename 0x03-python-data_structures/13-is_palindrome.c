@@ -41,6 +41,11 @@ int is_palindrome(listint_t **head)
 
 	listint_t *copy;
 
+	if (*head == NULL)
+	{
+		return (1);
+	}
+
 	copy = *head;
 	len = len_list(head);
 
