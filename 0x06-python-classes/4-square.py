@@ -25,6 +25,7 @@ class Square:
         """
         return (self.__size) ** 2
 
+    @property
     def size(self):
         """A method to retrieve size attr of the instance of `Square`
         """
