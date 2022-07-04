@@ -3,7 +3,7 @@
 """
 
 
-class BasicGeometry:
+class BaseGeometry:
     """Empty class BasicGeometry
     """
     pass
