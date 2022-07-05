@@ -33,4 +33,4 @@ class Student:
         Returns:
             dictionary of self with all the attributes
         """
-        return Student.__dict__
+        return dict(Student.__dict__)
