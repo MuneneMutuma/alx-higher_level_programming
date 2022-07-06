@@ -23,9 +23,9 @@ class Student:
             last_name (str): last name
             age (age): age
         """
-        Student.first_name = first_name
-        Student.last_name = last_name
-        Student.age = age
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
     def to_json(self):
         """method that returns dict object of class attributes and methds
@@ -33,4 +33,4 @@ class Student:
         Returns:
             dictionary of self with all the attributes
         """
-        return dict(Student.__dict__)
+        return self.__dict__
