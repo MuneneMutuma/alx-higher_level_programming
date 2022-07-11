@@ -1,11 +1,14 @@
 #!/usr/bin/python3
+"""Module that implements the `Base` class"""
 import json
 
 
 class Base:
+    """Base class for geometry shapes"""
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Constructor method for base class"""
         if id is not None:
             self.id = id
         else:
