@@ -53,7 +53,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        dummy = cls(1, 2, 3, 4)
+        dummy = cls(4, 4, 2, 3)
         dummy.update(**dictionary)
 
         return dummy
