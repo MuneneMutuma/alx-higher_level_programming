@@ -37,10 +37,17 @@ class Base:
             with open(str(cls) + ".json", "w") as f:
                 f.write("[]")
 
-        list_dictionaries = list()
+        store = list()
         for obj in list_objs:
-            list_dictionaries.append(obj.to_dictionary())
+            store.append(obj.to_dictionary())
 
-        filename = str(list_objs[0].__class__.__name__) + ".json"
+        filename = str(cls.__name__) + ".json"
         with open(filename, "w") as f:
-            f.write(cls.to_json_string(list_dictionaries))
+            i = 0
+            f.write("[")
+            while i < len(store) - 1:
+                f.write(json.dumps(store[i]))
+                f.write(", ")
+                i += 1
+            f.write(json.dumps(store[i]))
+            f.write("]")
