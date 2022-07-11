@@ -20,11 +20,7 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
 
-        dictionary_list = []
-        for dictionary in list_dictionaries:
-            dictionary_list.append(json.dumps(dictionary))
-
-        return str(dictionary_list)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
