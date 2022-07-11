@@ -5,8 +5,17 @@ from models.base import Base
 
 
 class Rectangle(Base):
+    """Class object for Rectangle shape"""
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Constructor method for Rectangle"""
+        """Constructor method for Rectangle
+
+        Attr:
+            width: width of the rectangle
+            height: height of the rectangle
+            x: x coordinate
+            y: y coordinate
+            id: id of element
+        """
         super().__init__(id)
         if type(width) is not int:
             raise TypeError("width must be an integer")
@@ -108,7 +117,7 @@ class Rectangle(Base):
                        self.__width, self.__height))
 
     def update(self, *args, **kwargs):
-        """updates `Rectangle`"""
+        """updates `Rectangle` attributes"""
         if len(args) > 0:
             self.id = args[0]
         if len(args) > 1:

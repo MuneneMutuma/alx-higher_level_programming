@@ -3,8 +3,8 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
-class TestCases(unittest.TestCase):
 
+class TestCases(unittest.TestCase):
     def test_base1(self):
         base = Base()
         self.assertEqual(base.id, 1)
@@ -46,6 +46,7 @@ class TestCases(unittest.TestCase):
 
         r6 = Rectangle(7, 13, 0, 1, 13)
         self.assertEqual(r6.area(), 91)
+
 
 if __name__ == "__main__":
     unittest.main()

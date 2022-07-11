@@ -1,18 +1,31 @@
 #!/usr/bin/python3
+"""Module that implements Square object"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """class for Square Shape Geometry object
+    """
     def __init__(self, size, x=0, y=0, id=None):
+        """Constructor method for class
+
+        Attr:
+            size: size of the square
+            x: x coordinate
+            y: y coordinate
+            id: id for the object
+        """
         super().__init__(width=size, height=size, x=x, y=y, id=id)
 
     def __str__(self):
+        """overrides default __str__ method
+        """
         return("[Square] ({}) {}/{} - {}"
                .format(self.id, self.x, self.y, self.width))
 
     @property
     def size(self):
-        """int: length of the square"""
+        """property method for size"""
         return (self.width)
 
     @size.setter
@@ -48,6 +61,7 @@ class Square(Rectangle):
                     self.id = kwargs["id"]
 
     def to_dictionary(self):
+        """method for providing dictionary representation of object"""
         dictionary = super().to_dictionary()
         dictionary.pop("width", None)
         dictionary["size"] = dictionary.pop("height", None)
