@@ -31,8 +31,9 @@ class Base:
             list_objs:`obj`:list of `Base` objects
         """
         if list_objs is None:
-            with open(str(cls) + ".json", "w") as f:
+            with open(str(cls.__name__) + ".json", "w") as f:
                 f.write("[]")
+            exit()
 
         store = list()
         for obj in list_objs:
