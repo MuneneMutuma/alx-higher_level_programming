@@ -72,7 +72,6 @@ class Rectangle(Base):
             raise TypeError("x must be an integer")
         if x < 0:
             raise ValueError("x must be => 0")
-        self.__height = height
         self.__x = x
 
     @property
@@ -88,7 +87,6 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be => 0")
-        self.__height = height
         self.__y = y
 
     def area(self):
@@ -133,3 +131,15 @@ class Rectangle(Base):
                 self.__height = kwargs["height"]
             if "id" in kwargs:
                 self.id = kwargs["id"]
+
+    def to_dictionary(self):
+        """returns dictionary representation of Rectangle object"""
+        dictionary = dict()
+
+        dictionary["id"] = self.id
+        dictionary["x"] = self.x
+        dictionary["y"] = self.y
+        dictionary["width"] = self.width
+        dictionary["height"] = self.height
+
+        return dictionary
