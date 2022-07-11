@@ -39,11 +39,4 @@ class Base:
 
         filename = str(cls.__name__) + ".json"
         with open(filename, "w") as f:
-            i = 0
-            f.write("[")
-            while i < len(store) - 1:
-                f.write(json.dumps(store[i]))
-                f.write(", ")
-                i += 1
-            f.write(json.dumps(store[i]))
-            f.write("]")
+            f.write(cls.to_json_string(store))
