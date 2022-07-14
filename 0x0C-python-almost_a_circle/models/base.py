@@ -33,15 +33,14 @@ class Base:
         if list_objs is None:
             with open(str(cls.__name__) + ".json", "w") as f:
                 f.write("[]")
-            exit()
+        else:
+            store = list()
+            for obj in list_objs:
+                store.append(obj.to_dictionary())
 
-        store = list()
-        for obj in list_objs:
-            store.append(obj.to_dictionary())
-
-        filename = str(cls.__name__) + ".json"
-        with open(filename, "w") as f:
-            f.write(cls.to_json_string(store))
+            filename = str(cls.__name__) + ".json"
+            with open(filename, "w") as f:
+                f.write(cls.to_json_string(store))
 
     @staticmethod
     def from_json_string(json_string):
