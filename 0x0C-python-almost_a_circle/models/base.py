@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module that implements the `Base` class"""
 import json
+import csv
 
 
 class Base:
@@ -75,3 +76,57 @@ class Base:
             result.append(cls.create(**item))
 
         return(result)
+ 
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        filename = cls.__name__ + ".csv"
+
+        content = []
+        if cls.__name__ == "Rectangle":
+            fields = ["id", "width", "height", "x", "y"]
+
+            for obj in list_objs:
+                tmp = []
+                tmp_dict = obj.to_dictionary()
+                tmp.append(tmp_dict.get("id"))
+                tmp.append(tmp_dict.get("width"))
+                tmp.append(tmp_dict.get("height"))
+                tmp.append(tmp_dict.get("x"))
+                tmp.append(tmp_dict.get("y"))
+
+                content.append(tmp)
+
+        if cls.__name__ == "Square":
+            fields = ["id", "size", "x", "y"]
+
+            for obj in list_objs:
+                tmp = []
+                tmp_dict = obj.to_dictionary()
+                tmp.append(tmp_dict.get("id"))
+                tmp.append(tmp_dict.get("size"))
+                tmp.append(tmp_dict.get("x"))
+                tmp.append(tmp_dict.get("y"))
+
+                content.append(tmp)
+        with open(filename, "w") as f:
+            csvwriter = csv.writer(f)
+
+            csvwriter.writerow(fields)
+            csvwriter.writerows(content)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = cls.__name__ + ".csv"
+        result = list()
+
+        try:
+            with open(filename, "r") as f:
+                instances = csv.DictReader(f)
+                for instance in instances:
+                    for item in instance:
+                        instance[item] = int(instance[item])
+                    result.append(cls.create(**instance))
+        except FileNotFoundError:
+            return []
+
+        return result
