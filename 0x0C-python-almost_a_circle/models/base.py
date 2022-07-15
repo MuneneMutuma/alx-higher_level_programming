@@ -76,7 +76,7 @@ class Base:
             result.append(cls.create(**item))
 
         return(result)
- 
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         filename = cls.__name__ + ".csv"
