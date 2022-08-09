@@ -1,0 +1,2 @@
+-- inserts a new roe in the table `first_table` of db `hbtn_0c_0`
+INSERT INTO first_table (id, name) VALUES (89, "Best School");
