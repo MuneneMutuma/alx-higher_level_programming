@@ -9,4 +9,4 @@ with urllib.request.urlopen(req) as response:
     print("Body response:")
     print(f"\t- type: {type(page)}")
     print(f"\t- content: {page}")
-    print(f"\t- type: {page.decode('utf-8')}")
+    print(f"\t- utf-8 content: {page.decode('utf-8')}")
