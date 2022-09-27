@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """sends post request and prints response body"""
 
-from urllib import request, parse
+import urllib.request as request
+import urllib.parse as parse
 import sys
 
 if __name__ == "__main__":
